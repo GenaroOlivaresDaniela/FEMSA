@@ -12,6 +12,6 @@ class VerifyCsrfToken extends Middleware
      * @var array<int, string>
      */
     protected $except = [
-        //
+    //Aqui coloca las rutas que deseas verificar en Postman 'nombre_ruta/*' ejemplo 'perfil/*'
     ];
 }

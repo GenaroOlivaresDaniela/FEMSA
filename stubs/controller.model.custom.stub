@@ -1,0 +1,106 @@
+<?php
+
+namespace App\Http\Controllers;
+
+
+use App\Http\Controllers\Controller;
+use App\Helpers\ResponseHelper;
+use App\Services\{{ classNameService }};
+use App\Http\Requests\Services\{{ classNameService }} as RulesRequest;
+
+class {{ classNameController }} extends Controller
+{
+    /**
+     * My Service
+     *
+     * @var \App\Services\{{ classNameService }}
+     */
+    protected $service;
+
+    /**
+     * Constructor
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->service = new {{ classNameService }}();
+    }
+
+     /**
+     * Retorna una lista de los recursos
+     *
+     * @param  \App\Http\Requests\Services\{{ classNameService }}\Index  $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function index(RulesRequest\Index $request)
+    {
+        $index{{ Name }} = $this->service->index($request->validated(), false);
+        if(request()->wantsJson()){
+            return ResponseHelper::json($index{{ Name }});
+        }
+        return view('',compact('index{{ Name }}'));
+    }
+
+
+ /**
+     * Guarda un nuevo recurso
+     *
+     * @param  \App\Http\Requests\Services\{{ classNameService }}\Store  $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function store(RulesRequest\Store $request)
+    {
+        $store{{ Name }} = $this->service->store($request->validated(), false, false);
+        if(request()->wantsJson()){
+            return ResponseHelper::json($store{{ Name }}, "Se guardó correctamente");
+        }
+        return view('',compact('store{{ Name }}'))->with("Se guardo correctamente");
+    }
+
+    /**
+     * Muestra un recurso en especifico
+     *
+     * @param  \App\Http\Requests\Services\{{ classNameService }}\Show  $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function show(RulesRequest\Show $request)
+    {
+        $show{{ Name }} = $this->service->show($request->validated(), false);
+        if(request()->wantsJson()){
+            return ResponseHelper::json($show{{ Name }});
+        }
+        return view('',compact('show{{ Name }}'));
+    }
+
+     /**
+     * Actualiza un recurso en especifico
+     *
+     * @param  \App\Http\Requests\Services\{{ classNameService }}\Update  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function update(RulesRequest\Update $request)
+    {
+        $update{{ Name }} = $this->service->update($request->validated(), false, false);
+         if(request()->wantsJson()){
+             return ResponseHelper::json($update{{ Name }}, "Se actualizó correctamente");
+        }
+        return view('', compact('update{{ Name }}'))->with("Se actualizó correctamente");
+    }
+
+   /**
+     * Elimina un recurso en especifico
+     *
+     * @param  \App\Http\Requests\Services\{{ classNameService }}\Destroy  $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function destroy(RulesRequest\Destroy $request)
+    {
+        $destroy{{ Name }} = $this->service->destroy($request->validated(), false, false);
+         if(request()->wantsJson()){
+              return ResponseHelper::json($destroy{{ Name }}, "Se eliminó correctamente");
+        }
+        return view('', compact('destroy{{ Name }}'))->with("Se eliminó correctamente");
+    }
+}

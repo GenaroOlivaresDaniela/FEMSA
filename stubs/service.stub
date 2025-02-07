@@ -1,0 +1,32 @@
+<?php
+
+namespace App\Services;
+
+use App\Http\Requests\Services\{{ className }} as RulesRequest;
+
+class {{ className }}
+{
+    /**
+     * Construct
+     *
+     * @return void
+     */
+    public function _construct()
+    {
+        //
+    }
+
+    /**
+     * Example method
+     *
+     * @return <type> $example
+     */
+    public function exampleMethod()
+    {
+        $self = new Self();
+
+        # Code
+
+        return null;
+    }
+}
